@@ -1,2 +1,2 @@
 # Amity-Portal-Homepage
-A visual clone of the Amity Portal homepage, built using only HTML and CSS for a clean and responsive user interface.
+This project is a frontend recreation of the Amity University student portal, developed entirely with HTML and CSS. It features a clean, user-friendly interface that mimics the layout and design of the original portal, including navigation menus, login sections, and essential student information displays—all without any JavaScript or backend functionality. The use of semantic HTML and responsive CSS ensures a visually appealing and accessible experience for users.
