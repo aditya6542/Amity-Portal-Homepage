@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Amizone Login</title>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    .background {
+      height: 100vh;
+      width: 100vw;
+      background: linear-gradient(to bottom, #225a9a 0%, #f6c12c 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .login-container {
+      background: rgba(255,255,255,0.85);
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+      display: flex;
+      flex-direction: row;
+      width: 900px;
+      max-width: 98vw;
+      padding: 32px 0;
+      min-height: 520px;
+    }
+    .left-panel {
+      flex: 1.15;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid #e0e0e0;
+      padding: 0 32px;
+    }
+    .amizone-logo {
+      width: 180px;
+      margin-bottom: 30px;
+      margin-top: 10px;
+      filter: drop-shadow(0 1px 2px #aaa);
+    }
+    .rank-box {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      padding: 24px 18px;
+      text-align: left;
+      margin-top: 10px;
+      width: 340px;
+      min-height: 330px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .rank-box h2 {
+      color: #225a9a;
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin: 0 0 16px 0;
+      line-height: 1.2;
+    }
+    .rank-logos {
+      display: flex;
+      gap: 18px;
+      margin-bottom: 10px;
+      margin-top: 10px;
+    }
+    .rank-logo {
+      height: 35px;
+      background: #fff;
+    }
+    .rank-desc {
+      font-size: 0.95rem;
+      color: #444;
+      margin: 0;
+      margin-top: 8px;
+    }
+    .right-panel {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 0 40px;
+    }
+    .login-title {
+      font-size: 1.55rem;
+      margin: 0 0 8px 0;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+    .login-title .green {
+      color: #41b445;
+      font-weight: bold;
+    }
+    .login-title .blue {
+      color: #225a9a;
+      font-weight: bold;
+    }
+    .admin-link {
+      color: #2d4fa7;
+      font-size: 0.99rem;
+      margin-bottom: 2px;
+      text-decoration: underline;
+      display: block;
+    }
+    .exam-link {
+      font-size: 0.98rem;
+      color: #444;
+      margin-bottom: 20px;
+    }
+    .exam-link a {
+      color: #225a9a;
+      text-decoration: none;
+    }
+    form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .input-box {
+      width: 100%;
+      padding: 14px 16px 14px 40px;
+      margin-bottom: 14px;
+      border: none;
+      border-radius: 25px;
+      font-size: 1.06rem;
+      background: #f3f3f3;
+      outline: none;
+      position: relative;
+      box-sizing: border-box;
+      color: #222;
+      box-shadow: 0 1px 2px #eee;
+    }
+    .input-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #aaa;
+      font-size: 1.2rem;
+      pointer-events: none;
+    }
+    .input-group {
+      position: relative;
+      width: 100%;
+      margin-bottom: 14px;
+    }
+    .cloudflare-box {
+      display: flex;
+      align-items: center;
+      background: #222;
+      color: #fff;
+      border-radius: 8px;
+      padding: 8px 16px;
+      margin-bottom: 20px;
+      font-size: 1rem;
+      gap: 12px;
+      width: 100%;
+      box-sizing: border-box;
+      justify-content: space-between;
+    }
+    .success {
+      color: #41b445;
+      font-weight: 600;
+      margin-right: 8px;
+      font-size: 1.05rem;
+    }
+    .cloudflare-logo {
+      height: 26px;
+      margin-left: 10px;
+    }
+    .login-btn {
+      width: 100%;
+      padding: 13px;
+      background: #41b445;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      font-size: 1.15rem;
+      font-weight: bold;
+      cursor: pointer;
+      margin-bottom: 12px;
+      margin-top: 8px;
+      transition: background 0.2s;
+      box-shadow: 0 2px 6px #eee;
+    }
+    .login-btn:hover {
+      background: #2e8c32;
+    }
+    .forgot-link {
+      color: #b1b1b1;
+      font-size: 1.01rem;
+      text-decoration: none;
+      margin-top: 2px;
+      align-self: center;
+      display: block;
+    }
+    @media (max-width: 900px) {
+      .login-container {
+        flex-direction: column;
+        width: 98vw;
+        min-width: 320px;
+        padding: 18px 0;
+      }
+      .left-panel, .right-panel {
+        border-right: none;
+        padding: 0 12vw;
+      }
+      .rank-box {
+        width: 90vw;
+        min-width: 220px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background">
+    <div class="login-container">
+      <div class="left-panel">
+        <img src="amizone-logo.png" alt="AMIZONE Logo" class="amizone-logo" style="width: 180px;">
+        <div class="rank-box">
+          <!-- Replace with your local image or use a public URL -->
+          <img src="QSRanking12.jpg" alt="QS Ranking" style="max-width: 100%; height: auto; margin-bottom: 10px;">
+
+          
+          
+        </div>
+      </div>
+      <div class="right-panel">
+        <h2 class="login-title">
+          <span class="green">LOGIN</span>
+          <span class="blue"> STUDENT | PARENT</span>
+        </h2>
+        <a href="https://s.amizone.net/" class="admin-link" style="text-decoration: none;">Click here for admin login</a>
+
+        <div class="exam-link">Exam : <a href="https://oe.amizone.net">https://oe.amizone.net</a></div>
+        <form>
+          <div class="input-group">
+            <span class="input-icon">&#xf007;</span>
+            <input type="text" placeholder="Username" class="input-box" style="font-family:'Segoe UI', Arial, sans-serif, 'FontAwesome';">
+          </div>
+          <div class="input-group">
+            <span class="input-icon">&#xf023;</span>
+            <input type="password" placeholder="Password" class="input-box" style="font-family:'Segoe UI', Arial, sans-serif, 'FontAwesome';">
+          </div>
+          <!-- <div class="cloudflare-box">
+            <span class="success">&#10004; Success!</span>
+            <img src="https://seeklogo.com/images/C/cloudflare-logo-A2F1E6A5E8-seeklogo.com.png" alt="Cloudflare" class="cloudflare-logo">
+            <span style="font-size:0.85rem; color:#fff; margin-left:10px;">CLOUDFLARE<br><span style="font-size:0.7rem; color:#ccc;">Privacy · Terms</span></span>
+          </div> -->
+          <button type="submit" class="login-btn">LOGIN</button>
+        </form>
+        <a href="#" class="forgot-link">Forgot Username / Password?</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
